@@ -4,19 +4,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="436ced5f-f556-46f1-ba77-7cfc5fc1a0df" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/RPG-Harry-Potter.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_lang3_3_12_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_projectlombok_lombok_1_18_26.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/RPG/RPG.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/RPG/src/main/README.file" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/RPG/src/main/java/Game/GameLogic.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/RPG/src/main/java/Game/Story.java" afterDir="false" />
+    <list default="true" id="436ced5f-f556-46f1-ba77-7cfc5fc1a0df" name="Changes" comment="Updqte">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RPG/src/main/java/Game/AbstractEnemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/RPG/src/main/java/Game/AbstractEnemy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RPG/src/main/java/Game/AbstractSpell.java" beforeDir="false" afterPath="$PROJECT_DIR$/RPG/src/main/java/Game/AbstractSpell.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RPG/src/main/java/Game/Character.java" beforeDir="false" afterPath="$PROJECT_DIR$/RPG/src/main/java/Game/Character.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RPG/src/main/java/Game/ForbiddenSpell.java" beforeDir="false" afterPath="$PROJECT_DIR$/RPG/src/main/java/Game/ForbiddenSpell.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RPG/src/main/java/Game/GameLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/RPG/src/main/java/Game/GameLogic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RPG/src/main/java/Game/House.java" beforeDir="false" afterPath="$PROJECT_DIR$/RPG/src/main/java/Game/House.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RPG/src/main/java/Game/Potion.java" beforeDir="false" afterPath="$PROJECT_DIR$/RPG/src/main/java/Game/Potion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RPG/src/main/java/Game/Story.java" beforeDir="false" afterPath="$PROJECT_DIR$/RPG/src/main/java/Game/Story.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RPG/src/main/java/Game/Wizard.java" beforeDir="false" afterPath="$PROJECT_DIR$/RPG/src/main/java/Game/Wizard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RPG/target/classes/Game/AbstractEnemy.class" beforeDir="false" afterPath="$PROJECT_DIR$/RPG/target/classes/Game/AbstractEnemy.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RPG/target/classes/Game/AbstractSpell.class" beforeDir="false" afterPath="$PROJECT_DIR$/RPG/target/classes/Game/AbstractSpell.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RPG/target/classes/Game/Character.class" beforeDir="false" afterPath="$PROJECT_DIR$/RPG/target/classes/Game/Character.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RPG/target/classes/Game/GameLogic.class" beforeDir="false" afterPath="$PROJECT_DIR$/RPG/target/classes/Game/GameLogic.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RPG/target/classes/Game/House.class" beforeDir="false" afterPath="$PROJECT_DIR$/RPG/target/classes/Game/House.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RPG/target/classes/Game/Potion.class" beforeDir="false" afterPath="$PROJECT_DIR$/RPG/target/classes/Game/Potion.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RPG/target/classes/Game/Story.class" beforeDir="false" afterPath="$PROJECT_DIR$/RPG/target/classes/Game/Story.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RPG/target/classes/Game/Wizard.class" beforeDir="false" afterPath="$PROJECT_DIR$/RPG/target/classes/Game/Wizard.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -109,6 +115,21 @@
       <option name="presentableId" value="Default" />
       <updated>1679493267329</updated>
     </task>
+    <task id="LOCAL-00001" summary="Updqte">
+      <created>1680134138935</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1680134138935</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Updqte">
+      <created>1680134316672</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1680134316672</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -124,5 +145,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="Updqte" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updqte" />
   </component>
 </project>

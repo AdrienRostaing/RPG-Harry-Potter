@@ -14,13 +14,12 @@ public abstract class AbstractSpell {
     static String[] spells = {};
     static Spell spell;
     static ForbiddenSpell forbiddenSpell;
-    static House houses;
 
     public AbstractSpell(String name, int damage, int accuracy, int resistance, String type) {
         this.name = name;
-        this.damage = damage + (damage*houses.damageboost)/100;
-        this.accuracy = accuracy + (accuracy*houses.accuracyboost)/100;
-        this.resistance = resistance + (resistance*houses.resistanceboost)/100;
+        this.damage = damage;
+        this.accuracy = accuracy;
+        this.resistance = resistance;
         this.type = type;
     }
     public static void learnSpell(String name){
@@ -56,7 +55,10 @@ public abstract class AbstractSpell {
             forbiddenSpell = new ForbiddenSpell("Crucio", damage = 50, accuracy = 90, resistance = 0, type = "attack");
         } else if (spells[input - 1] == "Imperio") {
             forbiddenSpell = new ForbiddenSpell("Imperio", damage = 45, accuracy = 100, resistance = 0, type = "attack");
+        } else if (spells[input - 1] == "Gryffindor sword"){
+            spell = new Spell("Stupefy", damage = 30, accuracy = 80, resistance = 0, type = "attack");
         }
+
     }
 
     public static String getName() {

@@ -1,10 +1,10 @@
 package Game;
 
 public class House {
-    public int potionboost;
-    public int damageboost;
-    public int resistanceboost;
-    public int accuracyboost;
+    public static int potionboost = 0;
+    public static int damageboost = 0;
+    public static int resistanceboost = 0;
+    public static int accuracyboost = 0;
     public String boostedstat = "boostedstat";
 
     public static final String[] HOUSES = {"Gryffindor", "Ravenclaw", "Hufflepuff", "Slitherin"};
@@ -12,32 +12,20 @@ public class House {
 
     public void house() {
         if(SortingHat.house == ("Gryffindor")){
-            this.potionboost = 0;
-            this.damageboost = 0;
-            this.resistanceboost = 25;
-            this.accuracyboost = 0;
-            this.boostedstat = "resistance";
+            resistanceboost = 5;
+            boostedstat = "resistance";
         }
-        else if(SortingHat.house ==("Ravenclaw")){
-            this.potionboost = 0;
-            this.damageboost = 25;
-            this.resistanceboost = 0;
-            this.accuracyboost = 0;
-            this.boostedstat = "damage";
+        else if(SortingHat.house ==("Slitherin")){
+            damageboost = 25;
+            boostedstat = "damage";
         }
         else if(SortingHat.house ==("Hufflepuff")){
             this.potionboost = 25;
-            this.damageboost = 0;
-            this.resistanceboost = 0;
-            this.accuracyboost = 0;
-            this.boostedstat = "potion";
+            boostedstat = "potion";
         }
-        else if(SortingHat.house ==("Slitherin")){
-            this.potionboost = 0;
-            this.damageboost = 0;
-            this.resistanceboost = 0;
+        else if(SortingHat.house ==("Ravenclaw")){
             this.accuracyboost = 25;
-            this.boostedstat = "accuracy";
+            boostedstat = "accuracy";
         }
         GameLogic.textDelay("The house comes with a booost to certain stats.");
         GameLogic.textDelay(SortingHat.house + " gives you a 25% boost" + " to your " + boostedstat + " stat.");

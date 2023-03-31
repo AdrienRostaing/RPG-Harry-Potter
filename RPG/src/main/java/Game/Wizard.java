@@ -13,11 +13,14 @@ public class Wizard extends Character {
 
     String house;
 
+
     public String potions;
 
     public int xp;
-    public String potiondisp;
-    int gold, restsleft, pots;
+
+    public int restsleft;
+
+
 
     // integers to store number of upgrades/skills in each path
 
@@ -26,20 +29,18 @@ public class Wizard extends Character {
 
     // wizard specific constructor
     public Wizard(String name, int maxHp, int accuracy, int damage, int resistance ,int xp){
-        super(name, maxHp, accuracy , damage, resistance, 0);
+        super(name, maxHp, accuracy , damage, resistance, xp);
         this.name = getName();
         this.pet = GameLogic.pet;
         this.maxHp = 200;
-        this.accuracy = AbstractSpell.accuracy;
-        this.damage = AbstractSpell.damage;
-        this.resistance = AbstractSpell.resistance;
+        this.accuracy = accuracy;
+        this.damage = damage;
+        this.resistance = resistance;
         this.wand = Wand.wand;
         this.house = SortingHat.house;
         this.knownSpells = AbstractSpell.spells;
-        this.potions = "Potion of life";
-        this.gold = 5;
+        this.potions = "Potion of life";;
         this.restsleft = 1;
-        this.pots = 0;
         this.xp = xp;
 
     }
@@ -47,11 +48,9 @@ public class Wizard extends Character {
 
     @Override
     public int attack() {
-        if(Math.random()*100 +1 <= AbstractSpell.accuracy){
-            System.out.println("You cast " + AbstractSpell.spells[AbstractSpell.input-1]+ "!");
-            return AbstractSpell.damage;
+        if(Math.random()*100 +1 <= AbstractSpell.accuracy + (AbstractSpell.accuracy *House.accuracyboost)/100){
+            return AbstractSpell.damage + (AbstractSpell.damage*House.damageboost)/100 +damage-20;
         }else{
-            System.out.println("You missed your spell!");
             return 0;
 
         }
@@ -59,7 +58,7 @@ public class Wizard extends Character {
 
     @Override
     public int defend() {
-        return AbstractSpell.resistance;
+        return House.resistanceboost;
     }
 
 
