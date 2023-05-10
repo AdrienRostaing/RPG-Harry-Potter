@@ -33,6 +33,16 @@ public abstract class AbstractSpell {
         spells = arrlistObj.toArray(spells);
 
     }
+
+    public static void sword(String name) {
+        ArrayList<String> arrlistObj =
+                new ArrayList<String>(Arrays.asList(spells));
+
+        // Add remove element to the ArrayList
+        arrlistObj.remove(name);
+        // Convert the ArrayList to Array
+        spells = arrlistObj.toArray(spells);
+    }
     public static void castSpell() {
         GameLogic.clearConsole();
         GameLogic.printHeading("Which spell would you like to cast?");
@@ -43,20 +53,22 @@ public abstract class AbstractSpell {
             spell = new Spell("WingardiumLeviosa", damage = 10, accuracy = 100, resistance = 0, type = "attack");
         } else if (spells[input - 1] == "Expelliarmus") {
             spell = new Spell("Expelliarmus", 10, 100, 0, "attack");
-        } else if (spells[input - 1] == "Protego") {
-            spell = new Spell("Protego", damage = 10, accuracy = 100, resistance = 10, type = "defense");
-        } else if (spells[input - 1] == "Stupefy") {
-            spell = new Spell("Stupefy", damage = 30, accuracy = 80, resistance = 0, type = "attack");
+        } else if (spells[input - 1] == "Accio") {
+            spell = new Spell("Accio", damage = 20, accuracy = 80, resistance = 0, type = "attack");
+        } else if (spells[input - 1] == "Expecto Patronum") {
+            spell = new Spell("Expecto Patronum", damage = 30, accuracy = 70, resistance = 0, type = "attack");
         } else if (spells[input - 1] == "Sectumsempra") {
-            spell = new Spell("Sectumsempra", damage = 40, accuracy = 70, resistance = 0, type = "attack");
+            spell = new Spell("Sectumsempra", damage = 40, accuracy = 60, resistance = 0, type = "attack");
+        } else if (spells[input - 1] == "Stupefy") {
+            spell = new Spell("Stupefy", damage = 50, accuracy = 55, resistance = 0, type = "attack");
         } else if (spells[input - 1] == "Avada Kedavra") {
-            forbiddenSpell = new ForbiddenSpell("Avada Kedavra", damage = 100, accuracy = 50, resistance = 0, type = "attack");
+            forbiddenSpell = new ForbiddenSpell("Avada Kedavra", damage = 100, accuracy = 40, resistance = 0, type = "attack");
         } else if (spells[input - 1] == "Crucio") {
-            forbiddenSpell = new ForbiddenSpell("Crucio", damage = 50, accuracy = 90, resistance = 0, type = "attack");
+            forbiddenSpell = new ForbiddenSpell("Crucio", damage = 60, accuracy = 50, resistance = 0, type = "attack");
         } else if (spells[input - 1] == "Imperio") {
-            forbiddenSpell = new ForbiddenSpell("Imperio", damage = 45, accuracy = 100, resistance = 0, type = "attack");
+            forbiddenSpell = new ForbiddenSpell("Imperio", damage = 70, accuracy = 40, resistance = 0, type = "attack");
         } else if (spells[input - 1] == "Gryffindor sword"){
-            spell = new Spell("Stupefy", damage = 30, accuracy = 80, resistance = 0, type = "attack");
+            spell = new Spell("Gryffindor sword", damage = 30, accuracy = 80, resistance = 0, type = "attack");
         }
 
     }

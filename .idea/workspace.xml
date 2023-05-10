@@ -8,19 +8,19 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/RPG/src/main/java/Game/AbstractEnemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/RPG/src/main/java/Game/AbstractEnemy.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/RPG/src/main/java/Game/AbstractSpell.java" beforeDir="false" afterPath="$PROJECT_DIR$/RPG/src/main/java/Game/AbstractSpell.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RPG/src/main/java/Game/Boss.java" beforeDir="false" afterPath="$PROJECT_DIR$/RPG/src/main/java/Game/Boss.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/RPG/src/main/java/Game/Character.java" beforeDir="false" afterPath="$PROJECT_DIR$/RPG/src/main/java/Game/Character.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RPG/src/main/java/Game/ForbiddenSpell.java" beforeDir="false" afterPath="$PROJECT_DIR$/RPG/src/main/java/Game/ForbiddenSpell.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RPG/src/main/java/Game/Enemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/RPG/src/main/java/Game/Enemy.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/RPG/src/main/java/Game/GameLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/RPG/src/main/java/Game/GameLogic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RPG/src/main/java/Game/House.java" beforeDir="false" afterPath="$PROJECT_DIR$/RPG/src/main/java/Game/House.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RPG/src/main/java/Game/Potion.java" beforeDir="false" afterPath="$PROJECT_DIR$/RPG/src/main/java/Game/Potion.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/RPG/src/main/java/Game/Story.java" beforeDir="false" afterPath="$PROJECT_DIR$/RPG/src/main/java/Game/Story.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/RPG/src/main/java/Game/Wizard.java" beforeDir="false" afterPath="$PROJECT_DIR$/RPG/src/main/java/Game/Wizard.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/RPG/target/classes/Game/AbstractEnemy.class" beforeDir="false" afterPath="$PROJECT_DIR$/RPG/target/classes/Game/AbstractEnemy.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/RPG/target/classes/Game/AbstractSpell.class" beforeDir="false" afterPath="$PROJECT_DIR$/RPG/target/classes/Game/AbstractSpell.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RPG/target/classes/Game/Boss.class" beforeDir="false" afterPath="$PROJECT_DIR$/RPG/target/classes/Game/Boss.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/RPG/target/classes/Game/Character.class" beforeDir="false" afterPath="$PROJECT_DIR$/RPG/target/classes/Game/Character.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RPG/target/classes/Game/Enemy.class" beforeDir="false" afterPath="$PROJECT_DIR$/RPG/target/classes/Game/Enemy.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RPG/target/classes/Game/ForbiddenSpell.class" beforeDir="false" afterPath="$PROJECT_DIR$/RPG/target/classes/Game/ForbiddenSpell.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/RPG/target/classes/Game/GameLogic.class" beforeDir="false" afterPath="$PROJECT_DIR$/RPG/target/classes/Game/GameLogic.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RPG/target/classes/Game/House.class" beforeDir="false" afterPath="$PROJECT_DIR$/RPG/target/classes/Game/House.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RPG/target/classes/Game/Potion.class" beforeDir="false" afterPath="$PROJECT_DIR$/RPG/target/classes/Game/Potion.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/RPG/target/classes/Game/Story.class" beforeDir="false" afterPath="$PROJECT_DIR$/RPG/target/classes/Game/Story.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/RPG/target/classes/Game/Wizard.class" beforeDir="false" afterPath="$PROJECT_DIR$/RPG/target/classes/Game/Wizard.class" afterDir="false" />
     </list>

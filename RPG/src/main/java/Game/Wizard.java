@@ -7,7 +7,7 @@ public class Wizard extends Character {
 
     String pet;
 
-    public static String name;
+    public static String name, type;
 
     String wand;
 
@@ -18,7 +18,7 @@ public class Wizard extends Character {
 
     public int xp;
 
-    public int restsleft;
+    public int restsleft, damageup;
 
 
 
@@ -28,14 +28,14 @@ public class Wizard extends Character {
     //Arrays to store skill names
 
     // wizard specific constructor
-    public Wizard(String name, int maxHp, int accuracy, int damage, int resistance ,int xp){
-        super(name, maxHp, accuracy , damage, resistance, xp);
+    public Wizard(String name, int maxHp, int accuracy, int damageup, String type ,int xp){
+        super(name, maxHp, accuracy , damageup, type, xp);
         this.name = getName();
         this.pet = GameLogic.pet;
         this.maxHp = 200;
         this.accuracy = accuracy;
-        this.damage = damage;
-        this.resistance = resistance;
+        this.damageup = damageup;
+        this.type = type;
         this.wand = Wand.wand;
         this.house = SortingHat.house;
         this.knownSpells = AbstractSpell.spells;
@@ -49,7 +49,7 @@ public class Wizard extends Character {
     @Override
     public int attack() {
         if(Math.random()*100 +1 <= AbstractSpell.accuracy + (AbstractSpell.accuracy *House.accuracyboost)/100){
-            return AbstractSpell.damage + (AbstractSpell.damage*House.damageboost)/100 +damage-20;
+            return AbstractSpell.damage + ((AbstractSpell.damage+ damageup)*House.damageboost)/100 + damageup;
         }else{
             return 0;
 

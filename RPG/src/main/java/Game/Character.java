@@ -2,7 +2,7 @@ package Game;
 
 public abstract class Character {
 
-    public static String name;
+    public static String name, type;
     public int  hp;
     public int maxHp;
     public int xp;
@@ -12,13 +12,13 @@ public abstract class Character {
 
 
 
-    public Character(String name, int maxHp, int accuracy, int damage, int resistance ,int xp) {
+    public Character(String name, int maxHp, int accuracy, int damage, String type,int xp) {
         this.hp = maxHp;
         this.maxHp = maxHp;
         this.name = name;
         this.accuracy = accuracy;
-        this.damage = damage;
-        this.resistance = resistance;
+        this.damage = 0;
+        this.type = type;
         this.xp = xp;
     }
 

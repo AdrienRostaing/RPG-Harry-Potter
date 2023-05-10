@@ -3,17 +3,17 @@ package Game;
 
 
 public class Enemy extends AbstractEnemy {
-    public String name;
-    public int maxHp, hp, accuracy, damage, resistance, xp;
+    public String name, type;
+    public int maxHp, hp, accuracy, damage, xp;
 
-    public Enemy(String name, int maxHp, int accuracy, int damage, int resistance ,int xp) {
-        super(name, maxHp, accuracy, damage, resistance, xp);
+    public Enemy(String name, int maxHp, int accuracy, int damage, String type ,int xp) {
+        super(name, maxHp, accuracy, damage, type, xp);
     this.name = name;
     this.hp = maxHp;
     this.maxHp= maxHp;
     this.accuracy = accuracy;
     this.damage = damage;
-    this.resistance = resistance;
+    this.type = type;
     this.xp = xp;
     }
 

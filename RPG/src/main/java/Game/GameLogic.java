@@ -7,7 +7,7 @@ import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
-
+import static Game.Potion.gold;
 
 
 public class GameLogic {
@@ -19,19 +19,18 @@ public class GameLogic {
     static Enemy enemy;
 
     //story elements
-    public static int place = 0;
     public static String[] places = {"Dungeon bathrooms", "Chamber of secrets", "Lake in forbidden forrest",
             "Little Hangleton cemetery","Exam room Hogwarts", "Astronomy tower", "Hogwarts"};
     public static int boss = 0;
-    public static String newspell;
 
     //random encounters
-    public static String[] encounters = {"Battle", "Battle", "Battle", "Professor", "Rest", "Battle"};
+    public static String[] encounters = {};
     //enemy names
     public static String[] enemyNames = {};
     public static boolean isRunning;
 
-    public static int level = 1;
+
+    public static boolean deatheater;
 
 
 
@@ -54,7 +53,7 @@ public class GameLogic {
     public static void textDelay(String text) {
         for (int i = 0; i < text.length(); i++) {
             System.out.print(text.charAt(i));
-            delay(5);
+            delay(0);
         }
         System.out.println("");
     }
@@ -116,8 +115,23 @@ public class GameLogic {
         }while (!nameSet);
     }
 
-
-
+    public static void choice() {
+        textDelay("The death eaters approach you and offer you to join them. Do you accept?");
+        System.out.println("(1) Yes!");
+        System.out.println("(2) No!");
+        int input = readInt("->", 2);
+        if (input == 1) {
+            deatheater = true;
+            Story.introauror();
+            new Boss("Auror", 250, 60, 85, "boss", 175);
+            battle(Boss.boss);
+        } else if (input == 2) {
+            deatheater = false;
+            Story.introdeatheater();
+            enemy.boss();
+            battle(Boss.boss);
+        }
+    }
 
 
 
@@ -151,7 +165,7 @@ public class GameLogic {
     //Method to start the game
     public static void startGame() {
         Story.printIntro();
-        wizard = new Wizard(name, 200,1,0,1,0 );
+        wizard = new Wizard(name, 200,1,0,"Hero",0 );
         Story.printFirstActIntro();
         //setting is Running  to true, so the game loop
         isRunning = true;
@@ -165,7 +179,6 @@ public class GameLogic {
     //method that changes the game if you beat the boss
     public static void checkAct(){
         GameLogic.clearConsole();
-
         //change acts based on boss fight
         if(boss == 0) {
             encounters = new String[]{"Battle", "Battle", "Shop", "Rest", "Battle"};
@@ -175,102 +188,92 @@ public class GameLogic {
                 Story.introtroll();
                 enemy.boss();
                 battle(Boss.boss);
-                wizard.hp = wizard.maxHp;
-            }
+            }else{
             randomEncounter();
+            }
+
         }else if(boss == 1) {
-            Story.outrotroll();
-            Story.printSecondActIntro();
-            newspell = "Expelliarmus";
             encounters = new String[]{"Battle", "Battle", "Shop", "Rest", "Battle"};
             enemyNames = new String[]{"Snake", "Acromantula", "cerberus"};
             if (wizard.xp >= 175) {
                 wizard.hp = wizard.maxHp;
                 Story.introbasilisk();
-                if (SortingHat.house == ("Gryffindor"))
+                if (SortingHat.house == ("Gryffindor")) {
                     Story.gryffbasilisk();
                     AbstractSpell.learnSpell("Gryffindor sword");
-                enemy.boss();
-                battle(Boss.boss);
-                wizard.hp = wizard.maxHp;
+                    enemy.boss();
+                    battle(Boss.boss);
+                } else {
+                    enemy.boss();
+                    battle(Boss.boss);
+                }
 
-
+            }else{
+                randomEncounter();
             }
-            randomEncounter();
 
         }else if(boss == 2){
-            Story.outrobasilisk();
-            Story.printThirdActIntro();
             encounters = new String[]{"Battle", "Battle", "Shop", "Rest", "Battle"};
             enemyNames = new String[]{"Snake", "Acromantula", "cerberus", "Dementor"};
             if (wizard.xp >= 350) {
                 Story.introdementor();
                 enemy.boss();
                 battle(Boss.boss);
-                wizard.hp = wizard.maxHp;
+            }else{
+                randomEncounter();
             }
-            randomEncounter();
+
         }else if(boss == 3){
-            Story.outrodementor();
-            Story.printFourthActIntro();
             encounters = new String[]{"Battle", "Battle", "Shop", "Rest", "Battle"};
             enemyNames = new String[]{"Snake", "Acromantula", "cerberus", "Dementor", "Werewolf"};
             if (wizard.xp >= 550) {
                 Story.introweakvoldemortandpetergrew();
                 enemy.boss();
                 battle(Boss.boss);
-                wizard.hp = wizard.maxHp;
-
-
+            }else{
+                randomEncounter();
             }
-            randomEncounter();
+
         }else if(boss == 4){
-            Story.outroweakvoldemortandpetergrew();
-            Story.printFifthActIntro();
             encounters = new String[]{"Battle", "Battle", "Shop", "Rest", "Battle"};
             enemyNames = new String[]{"Snake", "Acromantula", "cerberus", "Dementor", "Werewolf", "Dragon"};
             if (wizard.xp >= 850) {
                 Story.introdoloresumbridge();
                 enemy.boss();
                 battle(Boss.boss);
-                wizard.hp = wizard.maxHp;
-
-
+            }else{
+                randomEncounter();
             }
+
         }else if(boss == 5){
-            Story.outrodoloresumbridge();
-            Story.printSixthActIntro();
             encounters = new String[]{"Battle", "Battle", "Shop", "Rest", "Battle"};
-            enemyNames = new String[]{"Snake", "Acromantula", "cerberus", "Dementor", "Werewolf", "Dragon", "Death Eater"};
+            enemyNames = new String[]{"Snake", "Acromantula", "cerberus", "Dementor", "Werewolf", "Dragon"};
             if (wizard.xp >= 1250) {
-                Story.introdeatheater();
-                enemy.boss();
-                battle(Boss.boss);
-                wizard.hp = wizard.maxHp;
-
-
-
+                choice();
+            }else{
+                randomEncounter();
             }
-            randomEncounter();
+
         }else if(boss == 6){
-            Story.outrodeatheater();
-            Story.printSeventhActIntro();
             encounters = new String[]{"Battle", "Battle", "Shop", "Rest", "Battle"};
             enemyNames = new String[]{"Snake", "Acromantula", "cerberus", "Dementor", "Werewolf", "Dragon", "Death Eater"};
             if (wizard.xp >= 1800) {
-                Story.introvoldemort();
-                enemy.boss();
-                battle(Boss.boss);
-                wizard.hp = wizard.maxHp;
-                printMenu();
+                if (deatheater == true){
+                    Story.introauror2();
+                    new Boss("Auror", 290, 65, 95, "boss", 255);
+                    battle(Boss.boss);
+                }else {
+                    Story.introvoldemort();
+                    enemy.boss();
+                    battle(Boss.boss);
+                }
+            }else{
+                randomEncounter();
             }
-            randomEncounter();
 
-
-    }else if (boss == 7){
-        Story.outrovoldemort();
-        Story.printEnd();
-        isRunning = false;
+        }else if (boss == 7){
+            Story.printEnd();
+            isRunning = false;
         }
 
     }
@@ -299,8 +302,6 @@ public class GameLogic {
             promptEnterKey();
             Potion.shop();
         }
-
-
     }
 
 
@@ -314,8 +315,12 @@ public class GameLogic {
         System.out.println("House: " + wizard.house);
         System.out.println("Pet: "+ wizard.pet);
         System.out.println("Wand core and size: " + wizard.wand);
-        System.out.println("Known-spells: " + (Arrays.toString(wizard.knownSpells)));
+        System.out.println("Known-spells: " + Arrays.toString(AbstractSpell.spells));
         System.out.println("Potions: " + wizard.potions + " "+ Potion.pots);
+        System.out.println("XP: " + wizard.xp);
+        System.out.println("Level: " + boss);
+        System.out.println("Gold: " + gold);
+        System.out.println("Damage Upgrade: " + wizard.damageup);
         System.out.println("HP: " + wizard.hp + "/" + wizard.maxHp);
         promptEnterKey();
         returnmenu = true;
@@ -327,7 +332,7 @@ public class GameLogic {
     public static void printMenu(){
         clearConsole();
         printHeading("Main Menu");
-        System.out.println(places[place]);
+        System.out.println(places[boss]);
         System.out.println("Choose an action: ");
         printSeperator(1);
         System.out.println("(1) Continue Journey");
@@ -343,20 +348,23 @@ public class GameLogic {
             printHeading("Do you want to take a rest? (" + wizard.restsleft + " rests left)");
             System.out.println("(1) Yes \n(2) No");
             int input = readInt("->", 2);
-            if (input == 1)
+            if (input == 1) {
                 clearConsole();
-            if (wizard.hp < wizard.maxHp) {
-                int hpRestored = (int) (Math.random() * (wizard.xp / 4 + 1) + 10);
-                wizard.hp += hpRestored;
-                if (wizard.hp > wizard.maxHp) {
-                    wizard.hp = wizard.maxHp;
-                    System.out.println("You recovered " + hpRestored + " HP!");
-                    System.out.println("You now have " + wizard.hp + " HP!");
-                    wizard.restsleft--;
-                    promptEnterKey();
-                }
-            }else
-                System.out.println("You are at full HP! You don't need to rest!");
+                if (wizard.hp < wizard.maxHp) {
+                    int hpRestored = (int) (Math.random() * (wizard.xp / 4 + 1) + 10);
+                    wizard.hp += hpRestored;
+                    if (wizard.hp > wizard.maxHp) {
+                        wizard.hp = wizard.maxHp;
+                        System.out.println("You recovered " + hpRestored + " HP!");
+                        System.out.println("You now have " + wizard.hp + " HP!");
+                        wizard.restsleft--;
+                        promptEnterKey();
+                    }
+                } else
+                    System.out.println("You are at full HP! You don't need to rest!");
+            }if (input == 2) {
+                System.out.println("You decided not to rest!");
+            }
 
         }else {
             System.out.println("You have no rests left!");
@@ -367,12 +375,15 @@ public class GameLogic {
 
 
     public static void randomBattle(){
-        enemy.enemy();
+        AbstractEnemy.enemy();
         battle(Enemy.enemy);
     }
 
     //method to start a battle
     public static void battle(AbstractEnemy enemy){
+        if (AbstractEnemy.type == "boss"){
+            wizard.hp = wizard.maxHp;
+        }
         //start battle
         while(true){
             clearConsole();
@@ -388,21 +399,9 @@ public class GameLogic {
                 System.out.println();
                 //Fight
                 //calcultaing the damage and damage reduction
-                int dmg = wizard.attack() - enemy.defend();
+                int dmg = wizard.attack();
                 int dmgTook = enemy.attack() - wizard.defend();
-                //check if the damage is negative
-                if(dmg < 0){
-                    //add some damage if player defends well
-                    dmg -= dmgTook/2;
-                    dmgTook = 0;
-                }
-                if(dmg < 0)
-                    //set damage to 0 if it is negative
-                    dmg = 0;
-                if(dmgTook < 0)
-                    //set damage to 0 if it is negative
-                    dmgTook = 0;
-                //deal dmg to both parties
+
                 wizard.hp -= dmgTook;
                 enemy.hp -= dmg;
                 //print the info of this battle round
@@ -417,10 +416,6 @@ public class GameLogic {
                     wizardDied();
                     break;
                 }else if(enemy.hp <= 0){
-                    if (enemy.name == "Basilisk" || enemy.name == "Troll" || enemy.name == "Death Eater" || enemy.name == "Voldemort"
-                            || enemy.name == "Hord of Dementors" || enemy.name == "Weak Voldemort and Peter Pettigrew" || enemy.name == "Dolores Umbridge"){
-                        boss += 1;
-                    }
                     //player won
                     clearConsole();
                     printHeading("You defeated " + enemy.name + "!");
@@ -431,10 +426,10 @@ public class GameLogic {
                     int goldEarned = (int)(Math.random()*enemy.xp);
                     printHeading("What would you like to upgrade?");
                     System.out.println("(1) Damage \n(2) LifePoints");
-                    int input2 = readInt("->", 3);
+                    int input2 = readInt("->", 2);
                     if(input2 == 1){
                         //upgrade damage
-                        wizard.damage += 2;
+                        wizard.damageup += 2;
                         System.out.println("You upgraded your damage by 2!");
                     }else if(input2 == 2) {
                         //upgrade hp
@@ -450,10 +445,18 @@ public class GameLogic {
                     }
                     if(goldEarned > 0){
                         //add gold
-                        Potion.gold += goldEarned;
+                        gold += goldEarned;
                         System.out.println("You found " + goldEarned + " gold from " + enemy.name + "!");
                     }
                     promptEnterKey();
+                    if (AbstractEnemy.type == "boss"){
+                        Story.Storyboard();
+                    }
+                    else{
+                        printMenu();
+                        gameLoop();
+                    }
+
                     break;
                 }
             }else if(input == 2) {
@@ -499,10 +502,6 @@ public class GameLogic {
                 }
             }
         }
-        System.out.println(boss);
-
-        checkAct();
-
     }
 
     public static void wizardDied(){

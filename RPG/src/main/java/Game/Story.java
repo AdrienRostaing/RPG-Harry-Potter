@@ -7,6 +7,87 @@ public class Story {
     static SortingHat sortingHat;
     static Wizard wizard;
     static House house;
+
+    public static void Storyboard() {
+        if (GameLogic.boss == 0) {
+            outrotroll();
+            GameLogic.boss++;
+            printSecondActIntro();
+            GameLogic.printMenu();
+            GameLogic.gameLoop();
+
+        } else if (GameLogic.boss == 1) {
+            outrobasilisk();
+            if (SortingHat.house == ("Gryffindor")) {
+                outrogryffbasilisk();
+            }
+            GameLogic.boss++;
+            printThirdActIntro();
+            GameLogic.printMenu();
+            GameLogic.gameLoop();
+
+        } else if (GameLogic.boss == 2) {
+            outrodementor();
+            GameLogic.boss++;
+            printFourthActIntro();
+            GameLogic.printMenu();
+            GameLogic.gameLoop();
+
+
+        } else if (GameLogic.boss == 3) {
+            outroweakvoldemortandpetergrew();
+            GameLogic.boss++;
+            printFifthActIntro();
+            GameLogic.printMenu();
+            GameLogic.gameLoop();
+
+        } else if (GameLogic.boss == 4) {
+            outrodoloresumbridge();
+            GameLogic.boss++;
+            printSixthActIntro();
+            GameLogic.printMenu();
+            GameLogic.gameLoop();
+
+        } else if (GameLogic.boss == 5) {
+            if (GameLogic.deatheater == true) {
+                outroauror();
+                GameLogic.boss++;
+                printSixthActIntro();
+                GameLogic.printMenu();
+                GameLogic.gameLoop();
+            } else {
+                outrovoldemort();
+                GameLogic.boss++;
+                printSixthActIntro();
+                GameLogic.printMenu();
+                GameLogic.gameLoop();
+            }
+
+
+        } else if (GameLogic.boss == 6) {
+            if (GameLogic.deatheater == true) {
+
+
+                outroauror2();
+                GameLogic.boss++;
+                printSeventhActIntro2();
+                GameLogic.printMenu();
+                GameLogic.gameLoop();
+
+            } else {
+                outrovoldemort();
+                GameLogic.boss++;
+                printSeventhActIntro();
+                GameLogic.printMenu();
+                GameLogic.gameLoop();
+
+            }
+
+        } else if (GameLogic.boss == 7) {
+            printEnd();
+        }
+    }
+
     public static void printIntro() {
         //print title screen
         System.out.println("     ___      ___         _          ________      ________    __       __             ________     ________     ____________    ____________    __________     ________              ");
@@ -86,20 +167,20 @@ public class Story {
         GameLogic.textDelay("This spell will allow you to levitate objects.");
         GameLogic.textDelay("You can use this spell to move objects around, or to move yourself around.");
         GameLogic.textDelay("You can also use this spell to move objects around in order to defeat your enemies.");
-        GameLogic.textDelay("You are walking inside the castle when you see... ");
         GameLogic.promptEnterKey();
     }
 
     public static void printSecondActIntro(){
         GameLogic.printMenu();
         GameLogic.clearConsole();
-        GameLogic.textDelay("You go to " + SortingHat.house + " common room and living quarters.");
+        GameLogic.textDelay("This is your second year at Hogwarts.");
+        GameLogic.textDelay("You return to " + SortingHat.house + " common room and living quarters.");
         GameLogic.textDelay("You are a second year now and the first years look up to you.");
         GameLogic.textDelay("You tell them what you were told during your first year.");
         GameLogic.textDelay("You tell them to be careful and to always be on the lookout for any signs of danger.");
         GameLogic.promptEnterKey();
         GameLogic.clearConsole();
-        GameLogic.printHeading("Later that week");
+        GameLogic.printHeading("Your teacher tells you that you will be learning a new spell today.");
         AbstractSpell.learnSpell("Accio");
         GameLogic.textDelay("This spell will allow you to summon objects.");
         GameLogic.textDelay("You can also use this spell to summon objects from a distance in order to defeat your enemies.");
@@ -108,76 +189,103 @@ public class Story {
     public static void printThirdActIntro(){
         GameLogic.printMenu();
         GameLogic.clearConsole();
-        GameLogic.textDelay("You go to " + SortingHat.house + " common room and living quarters.");
+        GameLogic.textDelay("This is your third year at Hogwarts.");
+        GameLogic.textDelay("You return to " + SortingHat.house + " common room and living quarters.");
         GameLogic.textDelay("You are a second year now and the first years look up to you.");
         GameLogic.textDelay("You tell them what you were told during your first year.");
         GameLogic.textDelay("You tell them to be careful and to always be on the lookout for any signs of danger.");
         GameLogic.promptEnterKey();
         GameLogic.clearConsole();
         GameLogic.printHeading("Later that week");
-        AbstractSpell.learnSpell("Accio");
-        GameLogic.textDelay("This spell will allow you to summon objects.");
-        GameLogic.textDelay("You can also use this spell to summon objects from a distance in order to defeat your enemies.");
+        AbstractSpell.learnSpell("Expecto Patronum");
+        GameLogic.textDelay("This spell will release a Patronus, which will protect you from Dementors.");
+        GameLogic.textDelay("It can also be used to defeat your enemies.");
         GameLogic.promptEnterKey();
     }
     public static void printFourthActIntro(){
         GameLogic.printMenu();
         GameLogic.clearConsole();
-        GameLogic.textDelay("You go to " + SortingHat.house + " common room and living quarters.");
+        GameLogic.textDelay("You return to " + SortingHat.house + " common room and living quarters.");
         GameLogic.textDelay("You are a second year now and the first years look up to you.");
         GameLogic.textDelay("You tell them what you were told during your first year.");
         GameLogic.textDelay("You tell them to be careful and to always be on the lookout for any signs of danger.");
         GameLogic.promptEnterKey();
         GameLogic.clearConsole();
-        GameLogic.printHeading("Later that week");
-        AbstractSpell.learnSpell("Accio");
-        GameLogic.textDelay("This spell will allow you to summon objects.");
-        GameLogic.textDelay("You can also use this spell to summon objects from a distance in order to defeat your enemies.");
+        GameLogic.printHeading("During one of your classes in the defense against the dark arts, your teacher tells you");
+        GameLogic.printHeading("that you need to learn an important spell.");
+        AbstractSpell.learnSpell("Expelliarmus");
+        GameLogic.textDelay("This spell will allow you to disarm your enemies and will skip their attacking turn if successful.");
         GameLogic.promptEnterKey();
     }
     public static void printFifthActIntro(){
         GameLogic.printMenu();
         GameLogic.clearConsole();
-        GameLogic.textDelay("You go to " + SortingHat.house + " common room and living quarters.");
-        GameLogic.textDelay("You are a second year now and the first years look up to you.");
-        GameLogic.textDelay("You tell them what you were told during your first year.");
-        GameLogic.textDelay("You tell them to be careful and to always be on the lookout for any signs of danger.");
+        GameLogic.textDelay("You return to " + SortingHat.house + " common room and living quarters.");
+        GameLogic.textDelay("You are in your fifth year now.");
+        GameLogic.textDelay("The events of last year have changed you and you are now more mature.");
+        GameLogic.textDelay("You feel the need to expand your knowledge and learn new spells.");
+        GameLogic.textDelay("Unfortunately, your new defense against the dark arts teacher, Delores Umbridge, refuses to teach you new spells.");
         GameLogic.promptEnterKey();
         GameLogic.clearConsole();
-        GameLogic.printHeading("Later that week");
-        AbstractSpell.learnSpell("Accio");
-        GameLogic.textDelay("This spell will allow you to summon objects.");
-        GameLogic.textDelay("You can also use this spell to summon objects from a distance in order to defeat your enemies.");
+        GameLogic.printHeading("You decide to learn a new spell on your own.");
+        AbstractSpell.learnSpell("Stupefy");
+        GameLogic.textDelay("This spell will allow you to stun your enemies.");
+        GameLogic.textDelay("It seems to be a very effective spell in combat.");
         GameLogic.promptEnterKey();
     }
     public static void printSixthActIntro(){
         GameLogic.printMenu();
         GameLogic.clearConsole();
         GameLogic.textDelay("You go to " + SortingHat.house + " common room and living quarters.");
-        GameLogic.textDelay("You are a second year now and the first years look up to you.");
-        GameLogic.textDelay("You tell them what you were told during your first year.");
-        GameLogic.textDelay("You tell them to be careful and to always be on the lookout for any signs of danger.");
+        GameLogic.textDelay("You are in your sixth year at Hogwarts.");
+        GameLogic.textDelay("You start your potions class with professor Slughorn and you are given an old potions book.");
+        GameLogic.textDelay("Inside you find the inscription: \" This Book is the Property of the Half-Blood Prince \".");
+        GameLogic.textDelay("You are intrigued by this book and wonder who this Half-Blood Prince might be.");
         GameLogic.promptEnterKey();
         GameLogic.clearConsole();
-        GameLogic.printHeading("Later that week");
-        AbstractSpell.learnSpell("Accio");
-        GameLogic.textDelay("This spell will allow you to summon objects.");
+        GameLogic.printHeading("After going through the book you find a spell that you have never seen before.");
+        AbstractSpell.learnSpell("Sectumsempra");
+        GameLogic.textDelay("This spell will allow you to lacerates an enemy and causes severe hemorrhaging");
         GameLogic.textDelay("You can also use this spell to summon objects from a distance in order to defeat your enemies.");
         GameLogic.promptEnterKey();
     }
     public static void printSeventhActIntro(){
         GameLogic.printMenu();
         GameLogic.clearConsole();
-        GameLogic.textDelay("You go to " + SortingHat.house + " common room and living quarters.");
-        GameLogic.textDelay("You are a second year now and the first years look up to you.");
-        GameLogic.textDelay("You tell them what you were told during your first year.");
-        GameLogic.textDelay("You tell them to be careful and to always be on the lookout for any signs of danger.");
+        GameLogic.textDelay("You are in your seventh year but you do not return to Hogwarts");
+        GameLogic.textDelay("You decide to go search for the horcruxes.");
+        GameLogic.textDelay("This will allow you to defeat Voldemort once and for all.");
+        GameLogic.textDelay("However, you will need to learn new spells in order to survive");
         GameLogic.promptEnterKey();
         GameLogic.clearConsole();
-        GameLogic.printHeading("Later that week");
-        AbstractSpell.learnSpell("Accio");
-        GameLogic.textDelay("This spell will allow you to summon objects.");
-        GameLogic.textDelay("You can also use this spell to summon objects from a distance in order to defeat your enemies.");
+        GameLogic.printHeading("Along your journey,");
+        AbstractSpell.learnSpell("Imperio");
+        AbstractSpell.learnSpell("Crucio");
+        AbstractSpell.learnSpell("Avada Kedavra");
+        GameLogic.textDelay("Imperio spell will allow you to control your enemies, torture them and kill them.");
+        GameLogic.textDelay("Cruciou spell will allow you to torture your enemies.");
+        GameLogic.textDelay("Avada Kedavra spell will allow you to kill your enemies.");
+        GameLogic.textDelay("These spells are known as the Unforgivable Curses and you can only use them as a last resort.");
+        GameLogic.promptEnterKey();
+    }
+
+    public static void printSeventhActIntro2(){
+        GameLogic.printMenu();
+        GameLogic.clearConsole();
+        GameLogic.textDelay("You are in your seventh year but you do not return to Hogwarts");
+        GameLogic.textDelay("You are now part of the death eaters.");
+        GameLogic.textDelay("Your objective now is to kill all wizards that get into the dark lords way.");
+        GameLogic.textDelay("Your fellow death eaters are very powerful and think it's time for you to learn new spells.");
+        GameLogic.promptEnterKey();
+        GameLogic.clearConsole();
+        GameLogic.printHeading("Along your journey,");
+        AbstractSpell.learnSpell("Imperio");
+        AbstractSpell.learnSpell("Crucio");
+        AbstractSpell.learnSpell("Avada Kedavra");
+        GameLogic.textDelay("Imperio spell will allow you to control your enemies, torture them and kill them.");
+        GameLogic.textDelay("Cruciou spell will allow you to torture your enemies.");
+        GameLogic.textDelay("Avada Kedavra spell will allow you to kill your enemies.");
+        GameLogic.textDelay("These spells are known as the Unforgivable Curses but are necessary to kill all wizards that get in your way.");
         GameLogic.promptEnterKey();
     }
 
@@ -200,7 +308,7 @@ public class Story {
     public static void printEnd() {
         System.out.println("Congratulations " + GameLogic.name + "!" + " You have successfully graduated from Hogwarts school of magic!");
         System.out.println("You have earned a total of " + wizard.xp + " xp.");
-
+        GameLogic.promptEnterKey();
     }
     public static void acromantula(){
         GameLogic.clearConsole();
@@ -208,7 +316,7 @@ public class Story {
         GameLogic.textDelay(" Turning around, you see a massive spider-like creature, an Acromantula, approaching you with its multiple eyes fixed upon you.");
         GameLogic.textDelay(" You quickly draw your wand and prepare to defend yourself against the fierce creature. ");
         GameLogic.textDelay("The Acromantula, sensing your presence, lets out a loud hiss and charges towards you with its razor-sharp legs.");
-        GameLogic.promptEnterKey();
+
     }
 
     public static void snake(){
@@ -245,17 +353,23 @@ public class Story {
         GameLogic.textDelay("You recognize him as a Death Eater, a follower of the dark lord Voldemort.");
     }
     public static void introbasilisk(){
-        GameLogic.textDelay("You cautiously make your way through the dark and musty corridors of Hogwarts, your heart racing with anticipation and fear. " +
-                        "Your quest has led you to the infamous 'Chamber of Secrets', where an ancient and deadly creature lies in wait." +
-                        "You can hear the sound of its slithering body moving through the shadows, and you grip your wand tightly, preparing for the fight of your life." +
-                        "As you enter the chamber, you catch a glimpse of the creature's glowing eyes and razor-sharp fangs, and you know that this will be a battle like no other." +
-                        "With your courage and magic as your only weapons, you step forward to face the fearsome 'Basilisk', determined " +
-                        "to emerge victorious and save the school from its deadly grasp.");
+        GameLogic.textDelay("You cautiously make your way through the dark and musty corridors of Hogwarts, your heart racing with anticipation and fear. " );
+        GameLogic.textDelay("Your quest has led you to the infamous 'Chamber of Secrets', where an ancient and deadly creature lies in wait." );
+        GameLogic.textDelay("You can hear the sound of its slithering body moving through the shadows, and you grip your wand tightly, preparing for the fight of your life." );
+        GameLogic.textDelay("As you enter the chamber, you catch a glimpse of the creature's glowing eyes and razor-sharp fangs, and you know that this will be a battle like no other.");
+        GameLogic.textDelay("With your courage and magic as your only weapons, you step forward to face the fearsome 'Basilisk', determined ");
+        GameLogic.textDelay("to emerge victorious and save the school from its deadly grasp.");
+        GameLogic.promptEnterKey();
     }
     public static void gryffbasilisk(){
-        GameLogic.textDelay("\"The Gryffindor wizard reached for the Sword of Gryffindor, which had appeared at his feet.\n" +
-                "With a fierce determination, he raised the sword high above his head and delivered a swift blow to the deadly 'Basilisk', " +
-                "vanquishing the creature once and for all.\n");
+        GameLogic.textDelay("While you try to defeat the basilisk, the sorting hat appears next to you.");
+        GameLogic.textDelay("You look at it closely and in the hat you see a sword.");
+        GameLogic.textDelay("You pick up the sword and read the inscription on it, \"GRYFFINDOR\"");
+    }
+    public static void outrogryffbasilisk(){
+        GameLogic.textDelay("The gryffindor sword suddenly disappears from your hand.");
+        AbstractSpell.sword("Gryffindor sword");
+        GameLogic.promptEnterKey();
     }
     public static void outrobasilisk(){
         GameLogic.textDelay("You have defeated the Basilisk and saved Hogwarts from its deadly grasp.");
@@ -272,6 +386,7 @@ public class Story {
         GameLogic.textDelay("You recognize him as a Death Eater, a follower of the dark lord Voldemort.");
         GameLogic.textDelay("You know that you must defeat him before he can reach the school and wreak havoc upon the students.");
         GameLogic.textDelay("You step forward to face the Death Eater, determined to emerge victorious and save the school from his deadly grasp.");
+        GameLogic.promptEnterKey();
     }
     public static void outrodementor(){
         GameLogic.textDelay("You have defeated the Death Eater and saved Hogwarts from his deadly grasp.");
@@ -280,35 +395,7 @@ public class Story {
         GameLogic.textDelay("You have also learned a lot about yourself.");
         GameLogic.promptEnterKey();
     }
-    public static void introdragon(){
-        GameLogic.textDelay("You travel with Hogwarts to a distant land to study magical creatures!");
-        GameLogic.textDelay("Out of nowhere, a mighty dragon appears, its scales gleaming in the sunlight.");
-        GameLogic.textDelay("The dragon lets out a deafening roar, its fiery breath threatening to consume everything in its path.");
-        GameLogic.textDelay("The dragon charges towards you, its wings beating furiously.");
-        GameLogic.textDelay("You know that you must defeat it before it can reach the school and wreak havoc upon the students.");
-        GameLogic.textDelay("You step forward to face the dragon, determined to emerge victorious and save the school from its deadly grasp.");
-    }
-    public static void outrodragon(){
-        GameLogic.textDelay("You have defeated the dragon and saved Hogwarts from its deadly grasp.");
-        GameLogic.textDelay("You have just finished your fourth year at Hogwarts.");
-        GameLogic.textDelay("You have made a lot of friends, and you have learned a lot of new things.");
-        GameLogic.textDelay("You have also learned a lot about yourself.");
-        GameLogic.promptEnterKey();
-    }
-    public static void introwerewolf(){
-        GameLogic.textDelay("You get lost in the forest and you find yourself face to face with a Werewolf, a creature with razor-sharp claws and fangs. ");
-        GameLogic.textDelay("The moon is full, and the Werewolf is in its most dangerous form, ready to attack.");
-        GameLogic.textDelay("The Werewolf charges towards you, its eyes glinting with malice.");
-        GameLogic.textDelay("You know that you must defeat it before it can reach the school and wreak havoc upon the students.");
-        GameLogic.textDelay("You step forward to face the Werewolf, determined to emerge victorious and save the school from its deadly grasp.");
-    }
-    public static void outrowerewolf(){
-        GameLogic.textDelay("You have defeated the Werewolf and saved Hogwarts from its deadly grasp.");
-        GameLogic.textDelay("You have just finished your fifth year at Hogwarts.");
-        GameLogic.textDelay("You have made a lot of friends, and you have learned a lot of new things.");
-        GameLogic.textDelay("You have also learned a lot about yourself.");
-        GameLogic.promptEnterKey();
-    }
+
     public static void introweakvoldemortandpetergrew(){
         GameLogic.textDelay("You find yourself walking through a dense forest, with nothing but the sound of twigs snapping beneath your feet to keep you company. Suddenly, you sense a presence behind you, and you turn around to face a dark, hooded figure.\n" +
                 "\n" +
@@ -368,6 +455,35 @@ public class Story {
         GameLogic.textDelay("You have just finished your sixth year at Hogwarts.");
         GameLogic.textDelay("You have made a lot of friends, and you have learned a lot of new things.");
         GameLogic.textDelay("You have also learned a lot about yourself.");
+        GameLogic.promptEnterKey();
+    }
+    public static void introauror(){
+        GameLogic.textDelay("You find yourself standing in the middle of a dark forest, the moonlight filtering through the trees above you. " +
+                "You know that you're here for a reason, but you're not sure what it is. Suddenly, you hear a rustling in the bushes behind you. " +
+                "You turn around, your wand at the ready, and see a figure emerging from the darkness. It's an Auror, a member of the Ministry of Magic's elite law enforcement squad.\n" +
+                "\n" +
+                "\"What are you doing here?\" the Auror asks, his wand pointed at you. \"This is a restricted area.\"\n" +
+                "\n" +
+                "You raise your wand, ready for a fight. \"I'm here to stop you,\" you say firmly.");
+    }
+    public static void outroauror(){
+        GameLogic.textDelay("You have defeated the Auror.");
+        GameLogic.textDelay("You have just finished your sixth year at Hogwarts.");
+        GameLogic.textDelay("You can't go back to Hogwarts as you have joined the death eaters.");
+        GameLogic.promptEnterKey();
+    }
+
+    public static void introauror2(){
+        GameLogic.textDelay("The battle of Hogwarts is raging. You see wizards on both sides fighting to the death");
+        GameLogic.textDelay("You see a wizard on the other side of the battlefield. He isn't wearing a black cloak and has a wand in his hand.");
+        GameLogic.textDelay("He is clearly a powerful Auror. He approches you and says: I am Auror Kingsley Shacklebolt. I am here to stop you.");
+        GameLogic.textDelay("You both draw your wands and prepare to fight.");
+    }
+
+    public static void outroauror2(){
+        GameLogic.textDelay("You have defeated the Auror.");
+        GameLogic.textDelay("The battle of Hogwarts is over.");
+        GameLogic.textDelay("Voldemort and the death eaters have won. All celebrate the victory of the dark lord.");
         GameLogic.promptEnterKey();
     }
 

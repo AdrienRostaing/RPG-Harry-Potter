@@ -5,19 +5,21 @@ import java.util.Random;
 public abstract class  AbstractEnemy extends Character {
     public static int numenemy;
     public String name;
+    public static String type;
     static Enemy enemy;
     static Boss boss;
+    static Wizard wizard;
 
 
 
-    public AbstractEnemy(String name, int maxHp, int accuracy, int damage, int resistance ,int xp) {
-        super(name, maxHp, accuracy, damage, resistance, xp);
+    public AbstractEnemy(String name, int maxHp, int accuracy, int damage, String type ,int xp) {
+        super(name, maxHp, accuracy, damage, type, xp);
         this.name = name;
         this.hp = maxHp;
         this.maxHp= maxHp;
         this.accuracy = accuracy;
         this.damage = damage;
-        this.resistance = resistance;
+        this.type = type;
         this.xp = xp;
     }
 
@@ -26,54 +28,51 @@ public abstract class  AbstractEnemy extends Character {
         Random random = new Random();
         //random number between 0 and length of encounters array
         numenemy = random.nextInt(GameLogic.enemyNames.length);
-        for (int i = numenemy; i < GameLogic.enemyNames.length - 1; i++) {
-            GameLogic.enemyNames[i] = GameLogic.enemyNames[i + 1];
-        }
+        //for (int i = numenemy; i < GameLogic.enemyNames.length - 1; i++) {
+           // GameLogic.enemyNames[i] = GameLogic.enemyNames[i + 1];
+        //}
         if (GameLogic.enemyNames[numenemy] == "Snake") {
             Story.snake();
-            enemy = new Enemy("Snake", 30, 70, 10, 0, 10);
+            enemy = new Enemy("Snake", 30, 70, 10, "mob", 10);
         }else if (GameLogic.enemyNames[numenemy] == "Acromantula"){
             Story.acromantula();
-            enemy = new Enemy("Acromantula", 40, 60, 20, 0, 15);
+            enemy = new Enemy("Acromantula", 40, 60, 20, "mob", 15);
         }else if (GameLogic.enemyNames[numenemy] == "cerberus"){
             Story.cerberus();
-            enemy = new Enemy("Cerberus", 70, 50, 25, 0, 25);
+            enemy = new Enemy("Cerberus", 70, 50, 25, "mob", 25);
         }else if (GameLogic.enemyNames[numenemy] == "Dementor"){
             Story.dementor();
-            enemy = new Enemy("Dementor", 85, 60, 35, 0, 35);
+            enemy = new Enemy("Dementor", 85, 60, 35, "mob", 35);
         }else if (GameLogic.enemyNames[numenemy] == "Werewolf"){
             Story.werewolf();
-            enemy = new Enemy("Werewolf", 200, 50, 45, 0, 50);
+            enemy = new Enemy("Werewolf", 200, 50, 45, "mob", 50);
         }else if (GameLogic.enemyNames[numenemy] == "Dragon"){
             Story.dragon();
-            enemy = new Enemy("Dragon", 400, 50, 55, 10, 75);
+            enemy = new Enemy("Dragon", 400, 50, 55, "mob", 75);
         }else if (GameLogic.enemyNames[numenemy] == "death eater"){
             Story.deatheater();
-            enemy = new Enemy("Death Eater", 250, 70, 65, 0, 100);
+            enemy = new Enemy("Death Eater", 250, 70, 65, "mob", 100);
         }
         GameLogic.promptEnterKey();
     }
 
     public static void boss() {
-        if (GameLogic.level == 1)
-            boss = new Boss("Troll", 80, 50, 25, 0, 50);
-        else if (GameLogic.level == 2)
-            boss = new Boss("Basilisk", 100, 60, 45, 0, 75);
-        else if (GameLogic.level == 3)
-            boss = new Boss("Hord of Dementors", 130, 70, 55, 0, 100);
-        else if (GameLogic.level == 4)
-            boss = new Boss("Weak Voldemort and Peter Pettigrew", 175, 60, 65, 0, 125);
-        else if (GameLogic.level == 5)
-            boss = new Boss("Dolores Umbridge", 225, 60, 75, 0, 150);
-        else if (GameLogic.level == 6)
-            boss = new Boss("Death Eater", 250, 60, 85, 0, 175);
-        else if (GameLogic.level == 7)
-            boss = new Boss("Voldemort", 300, 60, 95, 0, 200);
+        if (GameLogic.boss == 0)
+            boss = new Boss("Troll", 80, 50, 25, "boss", 50);
+        else if (GameLogic.boss ==  1)
+            boss = new Boss("Basilisk", 100, 60, 45, "boss", 75);
+        else if (GameLogic.boss ==  2)
+            boss = new Boss("Hord of Dementors", 130, 70, 55, "boss", 100);
+        else if (GameLogic.boss == 3)
+            boss = new Boss("Weak Voldemort and Peter Pettigrew", 175, 60, 65, "boss", 125);
+        else if (GameLogic.boss == 4)
+            boss = new Boss("Dolores Umbridge", 225, 60, 75, "boss", 150);
+        else if (GameLogic.boss ==  5)
+            boss = new Boss("Death Eater", 250, 60, 85, "boss", 175);
+        else if (GameLogic.boss ==  6)
+            boss = new Boss("Voldemort", 300, 60, 95, "boss", 200);
     }
 
-    public String getName() {
-        return name;
-    }
     //Enemy specific attack and defence calculations
     @Override
     public int attack() {
